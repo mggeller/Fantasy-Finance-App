@@ -13,5 +13,6 @@ class Stock_In_Clients extends Model
         'client_id',
         'stock_id',
         'volume',
+        'purchase_price'
     ];
 }
