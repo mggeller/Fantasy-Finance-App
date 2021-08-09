@@ -25,6 +25,6 @@ class Stock extends Model
      * @var array
      */
     protected $casts = [
-        'price' => 'int',
+        'price' => 'float',
     ];
 }

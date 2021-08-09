@@ -8,14 +8,18 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="control-label" for="client_id">Client id</label>
+                        <label class="control-label" for="client_id"
+                            >Client id</label
+                        >
                         <input
                             v-model="stockInClient.client_id"
                             class="form-control"
                             type="number"
                             id="ClientId"
                         />
-                        <label class="control-label" for="stock_id">Stock id</label>
+                        <label class="control-label" for="stock_id"
+                            >Stock id</label
+                        >
                         <input
                             v-model="stockInClient.stock_id"
                             class="form-control"
@@ -29,16 +33,14 @@
                             type="number"
                             id="Volume"
                         />
-                        <label class="control-label" for="purchase_price">Purchase Price</label>
-                        <input
-                            v-model="stockInClient.purchase_price"
-                            class="form-control"
-                            type="number"
-                            id="PurchasePrice"
-                        />
                     </div>
                     <div class="form-group">
-                        <button @click="createOnClick($event)" class="btn btn-primary">Add</button>
+                        <button
+                            @click="createOnClick($event)"
+                            class="btn btn-primary"
+                        >
+                            Add
+                        </button>
                     </div>
                 </div>
             </div>
@@ -51,7 +53,8 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { IStockInClient } from '../../domain/IStockInClient';
+import { IStock } from "../../domain/IStock";
+import { IStockInClient } from "../../domain/IStockInClient";
 import router from "../../router";
 import store from "../../store";
 
@@ -65,9 +68,14 @@ export default class StockInClientsCreate extends Vue {
         purchase_price: 0
     };
 
+    get stock(): IStock | undefined {
+        return store.state.stock;
+    }
+
     createOnClick(): void {
-        store.dispatch('createStockInClient', this.stockInClient);
-        router.push('/clients');
+        this.stockInClient.purchase_price = this.stock!.price;
+        store.dispatch("createStockInClient", this.stockInClient);
+        router.push("/clients");
     }
 
     // ============ Lifecycle methods ==========
@@ -92,6 +100,9 @@ export default class StockInClientsCreate extends Vue {
     }
 
     updated(): void {
+        if (this.stockInClient.stock_id !== 0) {
+            store.dispatch("getStock", this.stockInClient.stock_id);
+        }
         console.log("updated");
     }
 
@@ -103,5 +114,4 @@ export default class StockInClientsCreate extends Vue {
         console.log("destroyed");
     }
 }
-
 </script>

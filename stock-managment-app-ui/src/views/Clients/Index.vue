@@ -35,7 +35,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import store from "../../store";
 import { IClient } from "../../domain/IClient";
-// import Alert from "./components/Alert.vue";
 
 @Component
 export default class ClientsIndex extends Vue {

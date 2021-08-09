@@ -18,7 +18,7 @@ class CreateStockInClientsTable extends Migration
             $table->foreignId('client_id')->constrained('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('stock_id')->constrained('stocks')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('volume');
-            $table->integer('purchase_price');
+            $table->float('purchase_price');
             $table->timestamps();
         });
     }

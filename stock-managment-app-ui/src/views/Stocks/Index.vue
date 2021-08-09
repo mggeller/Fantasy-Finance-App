@@ -17,13 +17,26 @@
             </thead>
             <tbody>
                 <tr v-for="stock in stocks" :key="stock.id">
-                    <td>{{stock.company_name}}</td>
+                    <td>{{ stock.company_name }}</td>
 
-                    <td>{{stock.price}} $</td>
+                    <td>{{ stock.price }} $</td>
 
                     <td>
-                        <router-link :to="{ name: 'StocksEdit', params: {id: stock.id} }">Update Price</router-link> |
-                        <button @click="deleteOnClick(stock)" type="button" class="btn btn-danger">Delete</button>
+                        <router-link
+                            :to="{
+                                name: 'StocksEdit',
+                                params: { id: stock.id },
+                            }"
+                            >Update Price</router-link
+                        >
+                        |
+                        <button
+                            @click="deleteOnClick(stock)"
+                            type="button"
+                            class="btn btn-danger"
+                        >
+                            Delete
+                        </button>
                     </td>
                 </tr>
             </tbody>
@@ -40,7 +53,7 @@ import { IStock } from "../../domain/IStock";
 @Component
 export default class StocksIndex extends Vue {
     get stocks(): IStock[] {
-        console.log('stocks log' + store.state.stocks);
+        console.log("stocks log" + store.state.stocks);
         return store.state.stocks;
     }
 

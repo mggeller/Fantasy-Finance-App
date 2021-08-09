@@ -19,6 +19,7 @@
                             v-model="stock.price"
                             class="form-control"
                             type="number"
+                            step="0.01"
                             id="Price"
                         />
                     </div>
