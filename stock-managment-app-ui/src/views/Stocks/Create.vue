@@ -45,7 +45,8 @@ export default class StocksCreate extends Vue {
     private stock: IStock = {
         id: 0,
         company_name: '',
-        price: 0
+        price: 0,
+        pivot: { id: 0, client_id: 0, stock_id: 0, volume: 0, purchase_price: 0 }
     };
 
     createOnClick(): void {

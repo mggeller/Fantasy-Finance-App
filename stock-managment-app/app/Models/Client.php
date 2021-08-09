@@ -18,4 +18,8 @@ class Client extends Model
         'username',
         'portfolio',
     ];
+
+    public function stocks() {
+        return $this->belongsToMany(Stock::class, 'stock__in__clients')->withPivot('volume', 'purchase_price');
+    }
 }

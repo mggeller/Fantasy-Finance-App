@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import ClientsIndex from '../views/Clients/Index.vue'
 import ClientsCreate from '../views/Clients/Create.vue'
+import ClientsDetails from '../views/Clients/Details.vue'
 import StocksIndex from '../views/Stocks/Index.vue'
 import StocksCreate from '../views/Stocks/Create.vue'
 import StocksEdit from '../views/Stocks/Edit.vue'
@@ -36,7 +37,12 @@ const routes: Array<RouteConfig> = [
     name: 'ClientsCreate',
     component: ClientsCreate
   },
-
+  {
+    path: '/clients/details/:id?',
+    name: 'ClientsDetails',
+    component: ClientsDetails,
+    props: true
+  },
   // Stocks
   {
     path: '/stocks',
@@ -54,13 +60,12 @@ const routes: Array<RouteConfig> = [
     component: StocksEdit,
     props: true
   },
-
   // StockInClients
   {
     path: '/stockinclients/create',
     name: 'StockInClientsCreate',
     component: StockInClientsCreate
-  },
+  }
 ]
 
 const router = new VueRouter({

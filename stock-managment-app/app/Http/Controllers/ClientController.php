@@ -13,7 +13,7 @@ class ClientController extends Controller
     }
 
     public function show($id) {
-        return Client::find($id);
+        return Client::with('stocks')->find($id);
     }
 
     public function add(Request $request) {

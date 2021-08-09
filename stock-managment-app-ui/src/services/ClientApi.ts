@@ -30,6 +30,25 @@ export abstract class ClientApi {
         }
     }
 
+    static async getOne(id: string): Promise<IClient | null> {
+        const url = "" + id;
+        console.log('URL ' + url);
+        console.log('URI' + this.axios.getUri)
+        try {
+            const response = await this.axios.get<IClient>(url);
+            console.log('getOne response', response);
+            if (response.status === 200) {
+                console.log('getOne response.data: ' + response.data);
+                return response.data;
+            }
+            console.log(response.status);
+            return null;
+        } catch (error) {
+            console.log('error: ', (error as Error).message);
+            return null
+        }
+    }
+
     static async create(client: IClient): Promise<IFetchResponse<string>> {
         const url = "";
         try {

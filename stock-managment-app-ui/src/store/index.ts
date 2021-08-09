@@ -45,6 +45,10 @@ export default new Vuex.Store({
       const clients = await ClientApi.getAll();
       context.commit('setClients', clients);
     },
+    async getClient(context, id:string): Promise<void> {
+      const client = await ClientApi.getOne(id);
+      context.commit('setClient', client);
+    },
     async createClient(context, client: IClient): Promise<void> {
       await ClientApi.create(client);
       await context.dispatch('getClients');

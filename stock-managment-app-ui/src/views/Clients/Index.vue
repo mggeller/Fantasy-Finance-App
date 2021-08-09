@@ -22,6 +22,7 @@
                     <td>{{client.portfolio}} $</td>
 
                     <td>
+                        <router-link type="button" class="btn btn-primary" :to="{ name: 'ClientsDetails', params: {id: client.id} }">Stocks</router-link> |
                         <button @click="deleteOnClick(client)" type="button" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>

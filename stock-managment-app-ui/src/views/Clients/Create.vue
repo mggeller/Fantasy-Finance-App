@@ -39,7 +39,8 @@ export default class ClientsCreate extends Vue {
     private client: IClient = {
         id: 0,
         username: '',
-        portfolio: 1000
+        portfolio: 1000,
+        stocks: []
     };
 
     createOnClick(): void {
