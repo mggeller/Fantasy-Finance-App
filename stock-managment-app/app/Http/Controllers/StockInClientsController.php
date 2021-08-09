@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Stock_In_Clients;
+use App\Models\Client;
 
 class StockInClientsController extends Controller
 {
@@ -17,7 +18,11 @@ class StockInClientsController extends Controller
     }
 
     public function add(Request $request) {
-        return Stock_In_Clients::create($request->all());
+        $purchase = Stock_In_Clients::create($request->all());
+        $client = Client::findOrFail($purchase->client_id);
+        $client->portfolio = $client->portfolio - $purchase->volume * $purchase->purchase_price;
+        $client->save();
+        return $purchase;
     }
 
     public function update(Request $request, $id) {

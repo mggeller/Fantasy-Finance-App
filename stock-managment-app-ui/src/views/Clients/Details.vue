@@ -13,6 +13,8 @@
 
                     <th>Current Price</th>
 
+                    <th>Gain/Loss</th>
+
                     <th></th>
                 </tr>
             </thead>
@@ -25,6 +27,8 @@
                     <td>{{stock.pivot.purchase_price}} $</td>
 
                     <td>{{stock.price}} $</td>
+
+                    <td>{{stock.price * stock.pivot.volume - stock.pivot.purchase_price * stock.pivot.volume}} $</td>
 
                 </tr>
             </tbody>

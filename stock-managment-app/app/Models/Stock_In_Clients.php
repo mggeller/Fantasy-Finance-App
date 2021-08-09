@@ -15,4 +15,10 @@ class Stock_In_Clients extends Model
         'volume',
         'purchase_price'
     ];
+
+    protected $appends = ['gainOrLoss'];
+
+    public function getGainOrLossAttribute() {
+        return 5;
+    }
 }
