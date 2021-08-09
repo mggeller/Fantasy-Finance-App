@@ -15,12 +15,6 @@
                             type="text"
                             id="Name"
                         />
-                        <input
-                            v-model="client.portfolio"
-                            class="form-control"
-                            type="number"
-                            id="Portfolio"
-                        />
                     </div>
                     <div class="form-group">
                         <button @click="createOnClick($event)" class="btn btn-primary">Create</button>
@@ -45,7 +39,7 @@ export default class ClientsCreate extends Vue {
     private client: IClient = {
         id: 0,
         username: '',
-        portfolio: 0
+        portfolio: 1000
     };
 
     createOnClick(): void {

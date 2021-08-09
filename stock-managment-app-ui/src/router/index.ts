@@ -6,6 +6,7 @@ import ClientsCreate from '../views/Clients/Create.vue'
 import StocksIndex from '../views/Stocks/Index.vue'
 import StocksCreate from '../views/Stocks/Create.vue'
 import StocksEdit from '../views/Stocks/Edit.vue'
+import StockInClientsCreate from '../views/StockInClients/Create.vue'
 
 Vue.use(VueRouter)
 
@@ -52,7 +53,14 @@ const routes: Array<RouteConfig> = [
     name: 'StocksEdit',
     component: StocksEdit,
     props: true
-  }
+  },
+
+  // StockInClients
+  {
+    path: '/stockinclients/create',
+    name: 'StockInClientsCreate',
+    component: StockInClientsCreate
+  },
 ]
 
 const router = new VueRouter({

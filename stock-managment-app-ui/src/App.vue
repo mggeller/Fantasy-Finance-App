@@ -33,7 +33,6 @@
                             flex-sm-row-reverse
                         "
                     >
-                        <Identity />
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <router-link to="/" class="nav-link text-dark"
@@ -45,6 +44,20 @@
                                     to="/clients"
                                     class="nav-link text-dark"
                                     >Clients</router-link
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <router-link
+                                    to="/stocks"
+                                    class="nav-link text-dark"
+                                    >Stocks</router-link
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <router-link
+                                    to="/stockinclients/create"
+                                    class="nav-link text-dark"
+                                    >Purchase Stocks</router-link
                                 >
                             </li>
                         </ul>

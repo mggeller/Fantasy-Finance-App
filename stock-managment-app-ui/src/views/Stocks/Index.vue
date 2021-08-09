@@ -19,7 +19,7 @@
                 <tr v-for="stock in stocks" :key="stock.id">
                     <td>{{stock.company_name}}</td>
 
-                    <td>{{stock.price}}</td>
+                    <td>{{stock.price}} $</td>
 
                     <td>
                         <router-link :to="{ name: 'StocksEdit', params: {id: stock.id} }">Update Price</router-link> |

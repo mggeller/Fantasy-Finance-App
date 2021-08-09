@@ -1,7 +1,9 @@
 import { IClient } from '@/domain/IClient'
 import { IStock } from '@/domain/IStock'
+import { IStockInClient } from '@/domain/IStockInClient'
 import { ClientApi } from '@/services/ClientApi'
 import { StockApi } from '@/services/StockApi'
+import { StockInClientsApi } from '@/services/StockInClientsApi'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -12,7 +14,9 @@ export default new Vuex.Store({
     clients: [] as IClient[],
     client: {} as IClient,
     stocks: [] as IStock[],
-    stock: {} as IStock
+    stock: {} as IStock,
+
+    stockInClient: {} as IStockInClient
   },
   mutations: {
     setClients(state, clients: IClient[]) {
@@ -28,6 +32,10 @@ export default new Vuex.Store({
 
     setStock(state, stock: IStock) {
       state.stock = stock;
+    },
+
+    setStockInClient(state, stockInClient: IStockInClient) {
+      state.stockInClient = stockInClient;
     }
   },
   actions: {
@@ -66,7 +74,13 @@ export default new Vuex.Store({
     async updateStock(context, stock: IStock): Promise<void> {
       await StockApi.update(stock);
       await context.dispatch('getStocks');
-    }
+    },
+
+    // StockInClients
+    async createStockInClient(context, stockInClient: IStockInClient): Promise<void> {
+      await StockInClientsApi.purchase(stockInClient);
+      await context.dispatch('getClients');
+    },
   },
   modules: {
   }

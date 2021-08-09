@@ -19,7 +19,7 @@
                 <tr v-for="client in clients" :key="client.id">
                     <td>{{client.username}}</td>
 
-                    <td>{{client.portfolio}}</td>
+                    <td>{{client.portfolio}} $</td>
 
                     <td>
                         <button @click="deleteOnClick(client)" type="button" class="btn btn-danger">Delete</button>
