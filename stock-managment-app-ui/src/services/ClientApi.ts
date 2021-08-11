@@ -32,8 +32,6 @@ export abstract class ClientApi {
 
     static async getOne(id: string): Promise<IClient | null> {
         const url = "" + id;
-        console.log('URL ' + url);
-        console.log('URI' + this.axios.getUri)
         try {
             const response = await this.axios.get<IClient>(url);
             console.log('getOne response', response);
